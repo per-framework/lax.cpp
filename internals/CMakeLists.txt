@@ -1,0 +1,2 @@
+add_conventional_executable_test(lax_test)
+target_link_libraries(lax_test PRIVATE lax_v1)
