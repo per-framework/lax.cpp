@@ -12,6 +12,9 @@ struct lax_v1::and_m<lax_v1::true_t, Exprs...> : and_m<Exprs...> {};
 template <class Expr, class... Exprs>
 struct lax_v1::and_m<Expr, Exprs...> : and_m<force_t<Expr>, Exprs...> {};
 
+template <class Expr>
+struct lax_v1::not_m : value_t<bool, !value_of_v<Expr>> {};
+
 template <class... Exprs> struct lax_v1::or_m : false_t {};
 template <class... Exprs>
 struct lax_v1::or_m<lax_v1::true_t, Exprs...> : true_t {};

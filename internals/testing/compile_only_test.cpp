@@ -22,4 +22,6 @@ static_assert(std::is_same_v<lax::value_t<unsigned long long, 101ull>::type,
 
 static_assert(lax::value_of_v<lax::is_array_m<lax::type_t<int[2]>>>);
 
+static_assert(lax::value_of_v<lax::not_m<lax::false_t>>);
+
 int main() { return 0; }
