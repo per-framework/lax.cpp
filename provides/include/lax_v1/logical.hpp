@@ -18,8 +18,7 @@ template <> struct lax_v1::and_m<> : true_t {};
 template <class Expr, class... Exprs>
 struct lax_v1::and_m<Expr, Exprs...> : if_m<Expr, and_m<Exprs...>, false_t> {};
 
-template <class Expr>
-struct lax_v1::not_m : value_t<bool, !value_of_v<Expr>> {};
+template <class Expr> struct lax_v1::not_m : auto_t<!value_of_v<Expr>> {};
 
 template <> struct lax_v1::or_m<> : false_t {};
 template <class Expr, class... Exprs>
