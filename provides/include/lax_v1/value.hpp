@@ -3,8 +3,9 @@
 #include "lax_v1/type.hpp"
 #include "lax_v1/value_synopsis.hpp"
 
-template <class Type, Type value_> struct lax_v1::value_t {
+#include <type_traits>
+
+template <class Type, Type value>
+struct lax_v1::value_t : std::integral_constant<Type, value> {
   using eval = value_t;
-  using type = Type;
-  static constexpr Type value = value_;
 };
