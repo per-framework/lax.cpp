@@ -48,4 +48,10 @@ static_assert(!is_stored_plain_v<char *>);
 static_assert(is_stored_plain_v<int *>);
 static_assert(is_stored_plain_v<int * [2]>);
 
+static_assert(lax::value_of_v<lax::if_m<lax::and_m<>, lax::value_t<int, 1>,
+                                        lax::value_t<int, 2>>> == 1);
+
+static_assert(lax::value_of_v<lax::if_m<lax::or_m<>, lax::value_t<int, 1>,
+                                        lax::value_t<int, 2>>> == 2);
+
 int main() { return 0; }
