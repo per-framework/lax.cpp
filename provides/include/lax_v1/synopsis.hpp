@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstddef>
+
 namespace lax_v1 {
 
 // force.hpp ===================================================================
@@ -52,6 +54,43 @@ template <class... Exprs> struct and_m;
 template <class... Exprs> struct or_m;
 
 template <class Expr> struct not_m;
+
+// functional.hpp ==============================================================
+
+template <template <class... Formals> class Function,
+          size_t arity = 0,
+          class... BoundActuals>
+struct fn_t;
+
+template <class Function, class... Actuals> struct apply_m;
+
+struct identity_m;
+
+template <class... Functions> struct compose_m;
+
+template <class... Functions> struct pipe_m;
+
+template <class Expr, class... Functions> struct thru_m;
+
+// tycon.hpp ===================================================================
+
+template <class Formal, class Expr> struct tycon_f;
+
+// seq.hpp =====================================================================
+
+struct Seq {
+  template <class... Elements> struct t;
+
+  template <class Sequence> struct length_m;
+
+  template <class Predicate, class Sequence> struct any_m;
+
+  template <class Function, class Sequence> struct map_m;
+
+  template <class Sequence> struct has_duplicates_m;
+
+  template <class Subset, class Superset> struct is_subset_of_m;
+};
 
 // lazify.hpp ==================================================================
 
