@@ -1,18 +1,19 @@
 #pragma once
 
-#include "lax_v1/value.hpp"
+#include "lax_v1/core.hpp"
 
-template <class Lhs, class Rhs>
-struct lax_v1::eq_m : auto_t<(value_of_v<Lhs> == value_of_v<Rhs>)> {};
+#define LAX(name, op)                                                          \
+  namespace lax_v1 {                                                           \
+  template <class Lhs, class Rhs>                                              \
+  using name##_p = value_c<bool, (Lhs::value op Rhs::value)>;                  \
+  }                                                                            \
+  template <class... Exprs>                                                    \
+  struct lax_v1::name##_m : primitive_c<name##_p, 2, Exprs...> {};
 
-template <class Lhs, class Rhs>
-struct lax_v1::gt_m : auto_t<(value_of_v<Lhs>> value_of_v<Rhs>)> {};
-
-template <class Lhs, class Rhs>
-struct lax_v1::gte_m : auto_t<(value_of_v<Lhs> >= value_of_v<Rhs>)> {};
-
-template <class Lhs, class Rhs>
-struct lax_v1::lt_m : auto_t<(value_of_v<Lhs> < value_of_v<Rhs>)> {};
-
-template <class Lhs, class Rhs>
-struct lax_v1::lte_m : auto_t<(value_of_v<Lhs> <= value_of_v<Rhs>)> {};
+LAX(eq, ==)
+LAX(gt, >)
+LAX(gte, >=)
+LAX(lt, <)
+LAX(lte, <=)
+LAX(neq, !=)
+#undef LAX
