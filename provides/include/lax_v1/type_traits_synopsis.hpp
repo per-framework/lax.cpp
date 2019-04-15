@@ -8,6 +8,8 @@ template <class TypeExpr> struct is_array_m;
 
 template <class TypeExpr> struct is_pointer_m;
 
+template <class LhsTypeExpr, class RhsTypeExpr> struct is_same_m;
+
 template <class TypeExpr> struct remove_all_extents_m;
 
 template <class TypeExpr> struct remove_pointer_m;
