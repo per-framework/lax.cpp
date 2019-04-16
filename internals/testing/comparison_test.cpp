@@ -4,3 +4,6 @@
 
 static_assert(
     lax::value_of_v<lax::gt_m<lax::value_t<int, 2>, lax::value_t<int, 1>>>);
+
+static_assert(
+    !lax::value_of_v<lax::eq_m<lax::value_t<int, 2>, lax::value_t<int, 1>>>);

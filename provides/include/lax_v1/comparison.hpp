@@ -4,6 +4,9 @@
 #include "lax_v1/value.hpp"
 
 template <class LhsExpr, class RhsExpr>
+struct lax_v1::eq_m : auto_t<(value_of_v<LhsExpr> == value_of_v<RhsExpr>)> {};
+
+template <class LhsExpr, class RhsExpr>
 struct lax_v1::gt_m : auto_t<(value_of_v<LhsExpr>> value_of_v<RhsExpr>)> {};
 
 template <class LhsExpr, class RhsExpr>

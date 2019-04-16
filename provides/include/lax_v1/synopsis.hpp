@@ -34,6 +34,7 @@ template <class Expr> struct neg_m;
 
 // comparison.hpp --------------------------------------------------------------
 
+template <class LhsExpr, class RhsExpr> struct eq_m;
 template <class LhsExpr, class RhsExpr> struct gt_m;
 template <class LhsExpr, class RhsExpr> struct gte_m;
 template <class LhsExpr, class RhsExpr> struct lt_m;
