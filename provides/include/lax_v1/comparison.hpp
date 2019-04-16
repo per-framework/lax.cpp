@@ -1,6 +1,6 @@
 #pragma once
 
-#include "lax_v1/comparison_synopsis.hpp"
+#include "lax_v1/synopsis.hpp"
 #include "lax_v1/value.hpp"
 
 template <class LhsExpr, class RhsExpr>
