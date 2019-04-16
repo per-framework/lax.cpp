@@ -1,6 +1,6 @@
 #pragma once
 
-#include "lax_v1/arithmetic_synopsis.hpp"
+#include "lax_v1/synopsis.hpp"
 
 #include "lax_v1/value.hpp"
 
