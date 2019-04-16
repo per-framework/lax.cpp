@@ -43,9 +43,11 @@ template <class LhsExpr, class RhsExpr> struct lte_m;
 // logical.hpp -----------------------------------------------------------------
 
 template <class... Exprs> struct if_m;
+
 template <class... Exprs> struct and_m;
-template <class Expr> struct not_m;
 template <class... Exprs> struct or_m;
+
+template <class Expr> struct not_m;
 
 // force.hpp -------------------------------------------------------------------
 
@@ -63,9 +65,11 @@ struct lazify_v;
 // type_traits.hpp -------------------------------------------------------------
 
 template <class TypeExpr> struct alignment_of_m;
+
 template <class TypeExpr> struct is_array_m;
 template <class TypeExpr> struct is_pointer_m;
 template <class LhsTypeExpr, class RhsTypeExpr> struct is_same_m;
+
 template <class TypeExpr> struct remove_all_extents_m;
 template <class TypeExpr> struct remove_pointer_m;
 
