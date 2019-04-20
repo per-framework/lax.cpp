@@ -2,13 +2,13 @@
 
 namespace lax_v1 {
 
-// type.hpp --------------------------------------------------------------------
+// type.hpp ====================================================================
 
 template <class T> struct type_t;
 
 template <class Expr> using type_of_t = typename Expr::type;
 
-// value.hpp -------------------------------------------------------------------
+// value.hpp ===================================================================
 
 template <class Type, Type value> struct value_t;
 
@@ -22,7 +22,7 @@ template <auto value> using auto_t = value_t<decltype(value), value>;
 using true_t = auto_t<true>;
 using false_t = auto_t<false>;
 
-// arithmetic.hpp --------------------------------------------------------------
+// arithmetic.hpp ==============================================================
 
 template <class LhsExpr, class RhsExpr> struct add_m;
 template <class LhsExpr, class RhsExpr> struct div_m;
@@ -32,7 +32,7 @@ template <class LhsExpr, class RhsExpr> struct sub_m;
 
 template <class Expr> struct neg_m;
 
-// comparison.hpp --------------------------------------------------------------
+// comparison.hpp ==============================================================
 
 template <class LhsExpr, class RhsExpr> struct eq_m;
 template <class LhsExpr, class RhsExpr> struct gt_m;
@@ -40,7 +40,7 @@ template <class LhsExpr, class RhsExpr> struct gte_m;
 template <class LhsExpr, class RhsExpr> struct lt_m;
 template <class LhsExpr, class RhsExpr> struct lte_m;
 
-// logical.hpp -----------------------------------------------------------------
+// logical.hpp =================================================================
 
 template <class... Exprs> struct if_m;
 
@@ -49,11 +49,11 @@ template <class... Exprs> struct or_m;
 
 template <class Expr> struct not_m;
 
-// force.hpp -------------------------------------------------------------------
+// force.hpp ===================================================================
 
 template <class Expr> using force_t = typename Expr::eval;
 
-// lazify.hpp ------------------------------------------------------------------
+// lazify.hpp ==================================================================
 
 template <template <class... Parameters> class Function, class... Arguments>
 struct lazify_t;
@@ -64,7 +64,7 @@ template <class Type,
           class... Arguments>
 struct lazify_v;
 
-// type_traits.hpp -------------------------------------------------------------
+// type_traits.hpp =============================================================
 
 template <class TypeExpr> struct alignment_of_m;
 
