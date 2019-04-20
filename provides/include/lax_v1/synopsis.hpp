@@ -58,7 +58,9 @@ template <class Expr> using force_t = typename Expr::eval;
 template <template <class... Parameters> class Function, class... Arguments>
 struct lazify_t;
 
-template <class Type, template <class... Parameters> class Function,
+template <class Type,
+          template <class... Parameters>
+          class Function,
           class... Arguments>
 struct lazify_v;
 
