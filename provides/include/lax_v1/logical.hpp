@@ -4,15 +4,14 @@
 #include "lax_v1/synopsis.hpp"
 #include "lax_v1/value.hpp"
 
-template <class ElseExpr> struct lax_v1::if_m<ElseExpr> : force_t<ElseExpr> {};
-template <class CondExpr, class ThenExpr, class... ElseExprs>
-struct lax_v1::if_m<CondExpr, ThenExpr, ElseExprs...>
-    : if_m<force_t<CondExpr>, ThenExpr, ElseExprs...> {};
-template <class ThenExpr, class... ElseExprs>
-struct lax_v1::if_m<lax_v1::true_t, ThenExpr, ElseExprs...> : ThenExpr {};
-template <class ThenExpr, class... ElseExprs>
-struct lax_v1::if_m<lax_v1::false_t, ThenExpr, ElseExprs...>
-    : if_m<ElseExprs...> {};
+template <class Else> struct lax_v1::if_m<Else> : force_t<Else> {};
+template <class Cond, class Then, class... Elses>
+struct lax_v1::if_m<Cond, Then, Elses...>
+    : if_m<force_t<Cond>, Then, Elses...> {};
+template <class Then, class... Elses>
+struct lax_v1::if_m<lax_v1::true_t, Then, Elses...> : Then {};
+template <class Then, class... Elses>
+struct lax_v1::if_m<lax_v1::false_t, Then, Elses...> : if_m<Elses...> {};
 
 template <> struct lax_v1::and_m<> : true_t {};
 template <class Expr, class... Exprs>

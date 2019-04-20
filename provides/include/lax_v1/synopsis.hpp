@@ -24,21 +24,21 @@ using false_t = auto_t<false>;
 
 // arithmetic.hpp ==============================================================
 
-template <class LhsExpr, class RhsExpr> struct add_m;
-template <class LhsExpr, class RhsExpr> struct div_m;
-template <class LhsExpr, class RhsExpr> struct mod_m;
-template <class LhsExpr, class RhsExpr> struct mul_m;
-template <class LhsExpr, class RhsExpr> struct sub_m;
+template <class Lhs, class Rhs> struct add_m;
+template <class Lhs, class Rhs> struct div_m;
+template <class Lhs, class Rhs> struct mod_m;
+template <class Lhs, class Rhs> struct mul_m;
+template <class Lhs, class Rhs> struct sub_m;
 
 template <class Expr> struct neg_m;
 
 // comparison.hpp ==============================================================
 
-template <class LhsExpr, class RhsExpr> struct eq_m;
-template <class LhsExpr, class RhsExpr> struct gt_m;
-template <class LhsExpr, class RhsExpr> struct gte_m;
-template <class LhsExpr, class RhsExpr> struct lt_m;
-template <class LhsExpr, class RhsExpr> struct lte_m;
+template <class Lhs, class Rhs> struct eq_m;
+template <class Lhs, class Rhs> struct gt_m;
+template <class Lhs, class Rhs> struct gte_m;
+template <class Lhs, class Rhs> struct lt_m;
+template <class Lhs, class Rhs> struct lte_m;
 
 // logical.hpp =================================================================
 
@@ -55,13 +55,10 @@ template <class Expr> using force_t = typename Expr::eval;
 
 // lazify.hpp ==================================================================
 
-template <template <class... Parameters> class Function, class... Arguments>
+template <template <class... Formals> class Trait, class... Actuals>
 struct lazify_t;
 
-template <class Type,
-          template <class... Parameters>
-          class Function,
-          class... Arguments>
+template <class Type, template <class... Formals> class Trait, class... Actuals>
 struct lazify_v;
 
 // type_traits.hpp =============================================================
