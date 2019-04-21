@@ -1,7 +1,6 @@
 #pragma once
 
 #include "lax_v1/lazify.hpp"
-#include "lax_v1/synopsis.hpp"
 
 #include <cstddef>
 #include <type_traits>

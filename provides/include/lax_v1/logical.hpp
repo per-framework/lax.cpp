@@ -1,7 +1,6 @@
 #pragma once
 
 #include "lax_v1/force.hpp"
-#include "lax_v1/synopsis.hpp"
 #include "lax_v1/value.hpp"
 
 template <class Else> struct lax_v1::if_m<Else> : force_t<Else> {};
