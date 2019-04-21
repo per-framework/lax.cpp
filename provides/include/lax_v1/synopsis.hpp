@@ -56,10 +56,11 @@ template <class Expr> struct not_m;
 // lazify.hpp ==================================================================
 
 template <template <class... Formals> class Trait, class... Actuals>
-struct lazify_t;
+using lazify_type_trait_t = type_t<type_of_t<Trait<type_of_t<Actuals>...>>>;
 
 template <class Type, template <class... Formals> class Trait, class... Actuals>
-struct lazify_v;
+using lazify_value_trait_t =
+    value_t<Type, value_of_v<Trait<type_of_t<Actuals>...>>>;
 
 // type_traits.hpp =============================================================
 
