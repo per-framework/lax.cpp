@@ -2,6 +2,10 @@
 
 namespace lax_v1 {
 
+// force.hpp ===================================================================
+
+template <class Expr> using force_t = typename Expr::eval;
+
 // type.hpp ====================================================================
 
 template <class T> struct type_t;
@@ -48,10 +52,6 @@ template <class... Exprs> struct and_m;
 template <class... Exprs> struct or_m;
 
 template <class Expr> struct not_m;
-
-// force.hpp ===================================================================
-
-template <class Expr> using force_t = typename Expr::eval;
 
 // lazify.hpp ==================================================================
 
