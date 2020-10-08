@@ -23,4 +23,4 @@ static inline constexpr bool is_stored_plain_v =
 static_assert(!is_stored_plain_v<char>);
 static_assert(!is_stored_plain_v<char *>);
 static_assert(is_stored_plain_v<int *>);
-static_assert(is_stored_plain_v<int * [2]>);
+static_assert(is_stored_plain_v<int *[2]>);
